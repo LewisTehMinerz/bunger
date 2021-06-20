@@ -1,1 +1,1 @@
-![](https://lewistehminerz.dev/assets/img/bunger.gif)
+[![](https://lewistehminerz.dev/assets/img/bunger.gif)](https://discord.com/api/oauth2/authorize?client_id=856180135824719883&permissions=16384&scope=bot)
