@@ -32,7 +32,7 @@ bot.on('messageCreate', async msg => {
             channel.id,
             setTimeout(() => {
                 cooldowns.delete(channel.id);
-            }, 10000)
+            }, 30000)
         );
     }
 });
