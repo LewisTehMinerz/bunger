@@ -1,10 +1,12 @@
 import Eris from 'eris';
+import { Mutex } from 'async-mutex';
 
 import fs from 'fs';
 
 const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
 const bot = new Eris.Client(config.token);
 
+const cooldownMutex = new Mutex();
 const cooldowns = new Map<string, NodeJS.Timeout>();
 
 bot.on('messageCreate', async msg => {
@@ -17,23 +19,23 @@ bot.on('messageCreate', async msg => {
     }
 
     if (msg.content.toLowerCase().includes('bunger')) {
-        if (cooldowns.has(channel.id)) return;
+        await cooldownMutex.runExclusive(async () => {
+            if (cooldowns.has(channel.id)) return;
 
-        try {
-            await channel.createMessage(
-                'https://lewistehminerz.dev/assets/img/bunger.gif'
+            try {
+                await channel.createMessage('https://lewistehminerz.dev/assets/img/bunger.gif');
+            } catch (e) {
+                // Oh no! Anyway...
+                return;
+            }
+
+            cooldowns.set(
+                channel.id,
+                setTimeout(() => {
+                    cooldowns.delete(channel.id);
+                }, 60000)
             );
-        } catch (e) {
-            // Oh no! Anyway...
-            return;
-        }
-
-        cooldowns.set(
-            channel.id,
-            setTimeout(() => {
-                cooldowns.delete(channel.id);
-            }, 60000)
-        );
+        });
     }
 });
 

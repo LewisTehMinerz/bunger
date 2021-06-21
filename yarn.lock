@@ -14,6 +14,13 @@
   dependencies:
     "@types/node" "*"
 
+async-mutex@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/async-mutex/-/async-mutex-0.3.1.tgz#7033af665f1c7cebed8b878267a43ba9e77c5f67"
+  integrity sha512-vRfQwcqBnJTLzVQo72Sf7KIUbcSUP5hNchx6udI1U6LuPQpfePgdjJzlCe76yFZ8pxlLjn9lwcl/Ya0TSOv0Tw==
+  dependencies:
+    tslib "^2.1.0"
+
 eris@^0.15.1:
   version "0.15.1"
   resolved "https://registry.yarnpkg.com/eris/-/eris-0.15.1.tgz#6b44e6d4675c271def7484725a0edede9e798960"
@@ -28,6 +35,11 @@ opusscript@^0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/opusscript/-/opusscript-0.0.8.tgz#00b49e81281b4d99092d013b1812af8654bd0a87"
   integrity sha512-VSTi1aWFuCkRCVq+tx/BQ5q9fMnQ9pVZ3JU4UHKqTkf0ED3fKEPdr+gKAAl3IA2hj9rrP6iyq3hlcJq3HELtNQ==
+
+tslib@^2.1.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
+  integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
 
 tweetnacl@^1.0.1:
   version "1.0.3"
