@@ -23,7 +23,10 @@ bot.on('messageCreate', async msg => {
             if (cooldowns.has(channel.id)) return;
 
             try {
-                await channel.createMessage('https://lewistehminerz.dev/assets/img/bunger.gif');
+                await channel.createMessage({
+                    content: 'https://lewistehminerz.dev/assets/img/bunger.gif',
+                    messageReference: { messageID: msg.id }
+                });
             } catch (e) {
                 // Oh no! Anyway...
                 return;
