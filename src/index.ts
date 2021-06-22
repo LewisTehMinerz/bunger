@@ -3,7 +3,7 @@ import { Mutex } from 'async-mutex';
 
 import fs from 'fs';
 
-let config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
+const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8'));
 const bot = new Eris.Client(config.token);
 
 const cooldownMutex = new Mutex();
@@ -38,7 +38,7 @@ bot.on('messageCreate', async msg => {
             unbonk.push(mention.id);
         }
 
-        config = config.bonked.filter((b: string) => !unbonk.includes(b));
+        config.bonked = config.bonked.filter((b: string) => !unbonk.includes(b));
         fs.writeFileSync('./config.json', JSON.stringify(config, null, 4));
 
         await channel.createMessage({
